@@ -2,22 +2,26 @@
     let inputTextarea;
     let output;
 
-    let runCode = () => {
-        let oldtag = document.getElementById("user_code")
-        try {
-            oldtag.remove()
-        } catch(err) {
-            console.log(err)
+
+        let runCode = () => {
+            let oldtag = document.getElementById("user_code")
+            try {
+                oldtag.remove()
+            } catch(err) {
+                console.log(err)
+            }
+            
+
+            let tag = document.createElement("script")
+            tag.type = "text/python"
+            tag.id = "user_code"
+            tag.innerHTML = "from browser import document\n\ndef print(string):\r\n    document[\"output\"].innerHTML = document[\"output\"].innerHTML + '<span>' + string + '</span>'" + "\n\n" + inputTextarea.value
+            document.body.appendChild(tag)
+            brython()
         }
         
 
-        let tag = document.createElement("script")
-        tag.type = "text/python"
-        tag.id = "user_code"
-        tag.innerHTML = "from browser import document\n\ndef print(string):\r\n    document[\"output\"].innerHTML = document[\"output\"].innerHTML + '<span>' + string + '</span>'" + "\n\n" + inputTextarea.value
-        document.body.appendChild(tag)
-        brython()
-    }
+    
 </script>
 
 <div class="center">
@@ -31,6 +35,16 @@
 </div>
 
 <style>
+    button {
+        border: 0;
+        background: var(--accent);
+        color: white;
+        padding: 20px;
+        font-weight: bold;
+        font-size: 1.2em;
+        border-radius: 10px;
+        cursor: pointer;
+    }
     .container {
         width: 100%;
         height: 100%;
@@ -46,18 +60,10 @@
         margin: auto;
         flex-direction: column;
         padding: 20px;
-        background-color: var(--accent);
-        height: 20%;
+        background-color: var(--background-alt);
+        min-height: 20%;
         width: 90%;
         border-radius: 10px;
-    }
-
-    button {
-        padding: 10px 20px;
-        background-color: greenyellow;
-        font-size: xx-large;
-        border: 0;
-        border-radius: 3px;
     }
 
     textarea {
@@ -67,7 +73,7 @@
         height: 50%;
         font-size: x-large;
         color: white;
-        background-color: var(--accent);
+        background-color: var(--background-alt);
         border-radius: 10px;
     }
 

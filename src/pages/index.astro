@@ -17,27 +17,118 @@ let title = 'PyTools';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{title}</title>
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/png" href="/assets/logo.png">
     <link rel="stylesheet" href="/style/global.css">
 </head>
 <body>
-    <Navbar />  
+    <Navbar />
     <main>
+        <div class="page">
+            <div class="tool-grid-box">
+                <div class="tool-grid-box-text">
+                    <h1>Tools</h1>
+                    <p>Loads of useful web pages for Python and web programmers!</p>
+                </div>
+                <div class="tool-grid">
+                    <div class="tool">
+                        <a href="/string_escaper">
+                            <h2>String escaper</h2>
+                        </a>
+                        <p>A free tool for converting text into Python friendly, escaped strings!</p>
+                    </div>
+                    <div class="tool">
+                        <a href="/repl">
+                            <h2>REPL</h2>
+                        </a>
+                        <p>Run Python code from the comfort of your browser!</p>
+                    </div>
+                    <div class="tool">
+                        <a href="/image_to_url">
+                            <h2>Image to base64 URL</h2>
+                        </a>
+                        <p>Turn any image into a HTML-friendly <code>data:</code> URL!</p>
+                    </div>
 
-
-        <!--
-           - You can also use imported framework components directly in your markup!
-           -
-           - Note: by default, these components are NOT interactive on the client.
-           - The `:visible` directive tells Astro to make it interactive.
-           -
-           - See https://docs.astro.build/core-concepts/component-hydration/ 
-           -->
-
+                </div>
+            </div>
+            <div class="discord-ad">
+                <h1 style="margin: 0;">PyTools</h1>
+                <span class="italic-fancy-font">By Dev Land, the web development Discord community</span><br>
+                <img src="/assets/devland.png" alt="Dev Land logo" class="devland-logo">
+                <br><br>
+                <a href="https://discord.gg/5wypzBwnQ5"><button class="discord-button">JOIN US ON DISCORD</button></a>
+            </div>
+        </div>
     </main>
 </body>
 </html>
 
 <style>
+    .italic-fancy-font {
+        font-size: large;
+        font-style: italic;
+        font-family:'Times New Roman', Times, serif
+    }
 
+    .devland-logo {
+        width: 50%;
+        border-radius: 100%;
+        box-shadow: 1px 1px 5px 0 rgb(0 0 0 / 50%);
+        position: sticky;
+        margin-top: 20px;
+    }
+
+    .discord-ad {
+        text-align: center;
+        flex: 1;
+        min-width: 200px;
+    }
+
+    .tool-grid-box {
+        display: flex; 
+        width: 900px;
+        max-width: 90%;
+        gap: 20px;
+        background: var(--background-alt);
+        padding: 20px;
+        border-radius: 10px;
+        flex: 2;
+    }
+
+    button {
+        border: 0;
+        background: var(--accent);
+        color: white;
+        padding: 20px;
+        font-weight: bold;
+        font-size: 1.2em;
+        border-radius: 10px;
+        cursor: pointer;
+    }
+
+    .page {
+        margin: 40px;
+        display: flex;
+        flex-flow: wrap;
+    }
+
+    .tool-grid {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        gap: 20px;
+        flex: 1;
+    }
+
+    .tool {
+        background: var(--accent);
+        padding: 20px;
+        border-radius: 10px;
+        flex: 1;
+        box-shadow: 1px 1px 5px 0 rgb(0 0 0 / 50%);
+    }
+
+    .tool a {
+        color: cornsilk;
+    }
 </style>

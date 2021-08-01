@@ -36,7 +36,7 @@
         margin: auto;
         flex-direction: column;
         padding: 20px;
-        background-color: var(--accent);
+        background-color: var(--background-alt);
         height: 20%;
         width: 90%;
         border-radius: 10px;
@@ -57,7 +57,7 @@
         height: 50%;
         font-size: x-large;
         color: white;
-        background-color: var(--accent);
+        background-color: var(--background-alt);
         border-radius: 10px;
     }
 

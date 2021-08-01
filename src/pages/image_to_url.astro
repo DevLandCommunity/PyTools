@@ -1,0 +1,67 @@
+---
+import Navbar from "../components/Navbar.astro"
+---
+<html lang="en">
+
+<head>
+    <script>
+
+        function previewFile() {
+            const preview = document.querySelector('#img');
+            const file = document.querySelector('input[type=file]').files[0];
+            const reader = new FileReader();
+
+            reader.addEventListener("load", function () {
+                // convert image file to base64 string
+                preview.src = reader.result;
+                preview.style.display = "block"
+                document.getElementById("url-container").innerHTML = reader.result;
+
+            }, false);
+
+            if (file) {
+                reader.readAsDataURL(file);
+            }
+        }
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Image to url @ PyTools</title>
+    <link rel="icon" type="image/png" href="/assets/logo.png">
+    <link rel="stylesheet" href="/style/global.css">
+</head>
+
+<body>
+    <Navbar />
+    <main>
+        <h3 class="warning">Notice: You are no longer able to visit this url directly in your browser, however you can use it in HTML iframes, &lt;img&gt; tags and any other HTML or CSS place to put an image URL.</h3>
+        <input type="file" onchange="previewFile()"><br>
+        <img style="display: none;" id="img" src="" height="200" alt="Image preview...">
+        <div class="url-container" id="url-container"></div>
+    </main>
+</body>
+
+</html>
+
+<style>
+.url-container {
+    width: 90%;
+    overflow: hidden;
+    background: var(--background-alt);
+    padding: 20px;
+    font-family: monospace;
+    color: green;
+    border-radius: 10px;
+}
+
+.warning {
+    background-color: var(--accent);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+main {
+    margin: auto;
+    width: 50%;
+}
+</style>
